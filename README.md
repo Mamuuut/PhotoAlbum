@@ -1,4 +1,4 @@
-Bali_2010
+Photo Albums
 =========
 
-Bali Holydays 2010 Photo Album
+Holydays Photo Album
