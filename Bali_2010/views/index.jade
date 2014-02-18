@@ -1,0 +1,9 @@
+extends layout
+
+append head
+  script(type='text/javascript', data-main='js/main', src='js/libs/require-min.js')
+  script(type='text/javascript' src='http://maps.google.com/maps/api/js?v=3.exp&sensor=false')
+
+block content
+  div#app
+    div#content.container

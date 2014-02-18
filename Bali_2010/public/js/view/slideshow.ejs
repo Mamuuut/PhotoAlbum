@@ -1,0 +1,24 @@
+<div class="carousel slide" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+<%
+    slides.each(function(slide, iSlide)
+    {
+%>
+        <div class="item <%= iSlide === 0 && 'active' %>">
+            <img src="<%= slide.attr('src') %>" alt="...">
+        </div>
+<%
+    })
+%>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>

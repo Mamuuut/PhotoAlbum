@@ -1,0 +1,16 @@
+<div class="thumbnails">
+    <div class="row">
+<%
+    thumbnails.each(function(thumbnail)
+    {
+%>
+        <div class="col-xs-4">
+            <a href="<%= thumbnail.attr('ref') %>" class="thumbnail">
+            <img src="<%= thumbnail.attr('src') %>" alt="..." />
+            </a>
+        </div>
+<%
+    });
+%>        
+    </div>
+</div>
