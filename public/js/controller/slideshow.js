@@ -61,6 +61,11 @@ define([
                     break;
             }
         },
+
+        'button.remove click': function(el, ev)
+        {
+            location.hash = this.options.parent;
+        }
     });
 
     return Slideshow;
