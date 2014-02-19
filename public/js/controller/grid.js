@@ -12,7 +12,8 @@ define([
     var Grid = can.Control.extend('Bali.controller.Grid',
     {
         defaults: {
-            thumbnails: []
+            thumbnails: [],
+            title: ''
         }
     },
     {
@@ -25,7 +26,8 @@ define([
         'vRender' : function()
         {
             this.element.html(can.view('grid_ejs', {
-                thumbnails: this.thumbnails
+                thumbnails  : this.thumbnails,
+                title       : this.options.title
             }));
         }
     });

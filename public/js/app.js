@@ -14,24 +14,27 @@ define([
     {
         defaults: {
             grid: {
-                main_page: [
-                    {
-                        src: 'images/map.jpg',
-                        ref: '#map'
-                    },
-                    {
-                        src: 'images/ubud.jpg',
-                        ref: '#slideshow/ubud'
-                    },
-                    {
-                        src: 'images/amed.jpg',
-                        ref: '#slideshow/amed'
-                    },
-                    {
-                        src: 'images/culture.jpg',
-                        ref: '#slideshow/culture'
-                    }
-                ]
+                main_page: {
+                    thumbnails: [
+                        {
+                            src: 'images/map.jpg',
+                            ref: '#map'
+                        },
+                        {
+                            src: 'images/ubud.jpg',
+                            ref: '#slideshow/ubud'
+                        },
+                        {
+                            src: 'images/amed.jpg',
+                            ref: '#slideshow/amed'
+                        },
+                        {
+                            src: 'images/culture.jpg',
+                            ref: '#slideshow/culture'
+                        }
+                    ],
+                    title: 'BALI 2010'
+                }
             },
             map: {
                 lat: -8.5499742,
@@ -132,7 +135,7 @@ define([
             can.route(':type');
 
             this.nav = new Nav(this.element.find('#nav'), {
-                thumbnails: this.options.grid.main_page
+                thumbnails: this.options.grid.main_page.thumbnails
             });
 
             can.route.ready();
@@ -140,9 +143,7 @@ define([
 
         "route": function(data)
         {
-            new Grid(this.element.find('#content'), {
-                thumbnails: this.options.grid.main_page
-            });
+            new Grid(this.element.find('#content'), this.options.grid.main_page);
 
             this.nav.vHide();
         },
