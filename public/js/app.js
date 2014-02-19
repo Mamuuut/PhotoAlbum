@@ -1,13 +1,14 @@
 define([
     'jquery',
+    'controller/nav',
     'controller/grid',
     'controller/map',
     'controller/slideshow',
-    
+
     'can/control',
     'can/control/route',
     'can/route'
-], function($, Grid, Map, Slideshow)
+], function($, Nav, Grid, Map, Slideshow)
 {
     var App = can.Control.extend('Bali.App',
     {
@@ -130,6 +131,10 @@ define([
             can.route(':type/:id');
             can.route(':type');
 
+            this.nav = new Nav(this.element.find('#nav'), {
+                thumbnails: this.options.grid.main_page
+            });
+
             can.route.ready();
         },
 
@@ -138,6 +143,8 @@ define([
             new Grid(this.element.find('#content'), {
                 thumbnails: this.options.grid.main_page
             });
+
+            this.nav.vHide();
         },
 
         ':type/:id route': function(data) {
@@ -149,6 +156,8 @@ define([
                     });
                     break;
             }
+
+            this.nav.vShow();
         },
 
         ':type route': function(data) {
@@ -157,7 +166,9 @@ define([
                     new Map(this.element.find('#content'), this.options.map);
                     break;
             }
-        },
+
+            this.nav.vShow();
+        }
     });
 
     return App;

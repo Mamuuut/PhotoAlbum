@@ -27,11 +27,18 @@ define([
             var self    = this;
             var zoom    = this.options.zoom;
             var center  = new google.maps.LatLng(this.options.lat,this.options.lon);
-            
+
             var map     = new google.maps.Map(self.element.find('.map')[0], {
                 center                  : center,
-                mapTypeId               : google.maps.MapTypeId.SATELLITE,
-                zoom                    : zoom
+                mapTypeId               : google.maps.MapTypeId.HYBRID,
+                zoom                    : zoom,
+                mapTypeControl          : false,
+                zoomControl             : false,
+                streetViewControl       : false,
+                scaleControl            : false,
+                rotateControl           : false,
+                panControl              : false,
+                overviewMapControl      : false
             });
 
             google.maps.event.addListener(map, 'click', function() {
@@ -39,11 +46,11 @@ define([
                 map.panTo(center);
             });
 
-            $.each(self.options.markers, function(iTmp, marker)
+            $.each(self.options.markers, function(iTmp, markerData)
             {
                 var marker = new Marker({
                     map: map,
-                    position: new google.maps.LatLng(marker.lat,marker.lon),
+                    position: new google.maps.LatLng(markerData.lat, markerData.lon),
                     title: 'Click to zoom'
                 });
 
@@ -59,15 +66,10 @@ define([
         {
             var key = ev.keyCode ? ev.keyCode : ev.which;
             switch(key) {
-                case 27: 
+                case 27:
                     location.hash = '#';
                     break;
             }
-        },
-
-        'button.remove click': function(el, ev)
-        {
-            location.hash = '#';
         }
     });
 

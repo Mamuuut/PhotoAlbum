@@ -50,21 +50,16 @@ define([
         {
             var key = ev.keyCode ? ev.keyCode : ev.which;
             switch(key) {
-                case 39: 
+                case 39:
                     $('.carousel').carousel('next');
                     break;
-                case 37: 
+                case 37:
                     $('.carousel').carousel('prev');
                     break;
-                case 27: 
+                case 27:
                     location.hash = this.options.parent;
                     break;
             }
-        },
-
-        'button.remove click': function(el, ev)
-        {
-            location.hash = this.options.parent;
         }
     });
 

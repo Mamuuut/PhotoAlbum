@@ -7,7 +7,7 @@
     {
 %>
         <div class="item <%= iSlide === 0 && 'active' %>">
-            <img src="<%= slide.attr('src') %>" alt="...">
+            <div class="slide-img" style="background-image: url(<%= slide.attr('src') %>)" alt="..."></div>
         </div>
 <%
     })
@@ -22,7 +22,3 @@
         <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
 </div>
-
-<button type="button" class="btn btn-default remove">
-    <span class="glyphicon glyphicon-remove"></span>
-</button>

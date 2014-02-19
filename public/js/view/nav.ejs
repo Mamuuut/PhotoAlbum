@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+<%
+    thumbnails.each(function(thumbnail)
+    {
+%>
+        <div class="col-xs-1">
+            <a href="<%= thumbnail.attr('ref') %>" class="nav thumbnail">
+            <img src="<%= thumbnail.attr('src') %>" alt="..." />
+            </a>
+        </div>
+<%
+    });
+%>
+    </div>
+
+    <button type="button" class="btn btn-default remove">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+</div>

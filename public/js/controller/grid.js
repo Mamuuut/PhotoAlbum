@@ -26,7 +26,7 @@ define([
         {
             this.element.html(can.view('grid_ejs', {
                 thumbnails: this.thumbnails
-            }))
+            }));
         }
     });
 
